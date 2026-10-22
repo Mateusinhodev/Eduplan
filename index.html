@@ -7,8 +7,15 @@
     <link rel="stylesheet" href="style.css">
     <!-- Importando a fonte do projeto -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Biblioteca de ícones do Google (Material Symbols) 
+     Para usar um ícone, basta escrever o NOME dentro de um <span> 
+     <span class="material-symbols-outlined">home</span>--> 
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
 <body>
+
+    <!-- HEADER -->
     <!-- <header> é uma tag semântica: ela existe especificamente para marcar o cabeçalho do site.
     class="header" conecta essa tag com o CSS -->
     <header class="header">
@@ -42,6 +49,68 @@
             <button class="hamburguer" id="btn-menu">☰</button>
         </div>
     </header>
+
+    <!-- HERO -->
+    <!-- "Hero" é o nome da primeira seção do site, a "vitrine".
+     <main> marca o conteúdo principal da página (as próximas seções também vão aqui dentro) -->
+
+    <main>
+        <!-- Section são seções do projeto -->
+        <section class="hero" id="inicio">
+            <!-- Mesmo "envelope" do header: limita a largura e 
+             organiza as duas colunas -->
+            <div class="hero-inner">
+
+                <!-- COLUNA DA ESQUERDA: textos e botões -->
+                 <div class="hero-texto">
+                    <span class="hero-etiqueta">Plataforma para Professores</span>
+                 </div>
+
+                 <!-- O texto está escrito normal. Quem deixa em MAIÚSCULAS é o CSS (text-transform)
+                  O <span> permite pintar só a palavra "inteligente" de azul -->
+                 <h1 class="hero-titulo">
+                    Planejamento pedagógico <span>inteligente</span>
+                 </h1>
+
+                 <p class="hero-descricao">
+                    Organize planos de aula, acompanhe turmas e centralize sua rotina acadêmica em um
+                    só lugar.
+                 </p>
+
+                 <div class="hero-botoes">
+                    <a href="#" class="btn btn-primario btn-grande">Começar agora</a>
+                    <a href="#" class="btn btn-contorno btn-grande">
+                        <span class="material-symbols-outlined">play_arrow</span>
+                        Ver Recursos
+                    </a>
+                 </div>
+
+                 <!-- Faixa com as 3 vantagens -->
+                 <ul class="hero-vantagens">
+                    <li>
+                        <span class="material-symbols-outlined">verified_user</span>
+                        <p><strong>Seguro</strong> Seus dados protegidos</p>
+                    </li>
+
+                    <li>
+                        <span class="material-symbols-outlined">cloud</span>
+                        <p>Acesso em qualquer lugar</p>
+                    </li>
+
+                    <li>
+                        <span class="material-symbols-outlined">schedule</span>
+                        <p>Economize tempo</p>
+                    </li>
+                 </ul>
+            </div>
+
+            <img 
+                src="./assets/dashboard.png" 
+                alt="Tela do Dashboard do Eduplan"
+                class="hero-imagem"
+            >
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
