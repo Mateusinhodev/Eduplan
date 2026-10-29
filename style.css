@@ -13,6 +13,12 @@ Vantagem: se quiser trocar uma cor, muda só aqui e ela é atualizada em todos o
     --texto-secundario: #475569;
     --cor-borda: #E5E7EB;
     --cor-fundo: #FFFFFF;
+
+    /* NOVAS Variáveis */
+    --azul-marinho: #0B1E4F;
+    --azul-hover: #1E40AF;
+    --azul-claro: #DBEAFE;
+    --fundo-suave: #F5F8FF;
 }
 
 /* O "*" seleciona TODOS os elementos da página */
@@ -204,4 +210,101 @@ body {
     }
 }
 
+/* HERO */
 
+/* Icones do Google: Deixamos o tamanho padrão menor e alinhado 
+ao texto */
+.material-symbols-outlined {
+    font-size: 20px;
+    line-height: 1;
+    display: inline-block;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    flex-shrink: 0; /* O ícone nunca encolhe dentro de um flex */
+}
+
+.hero {
+    background-color: var(--fundo-suave);
+    padding: 64px 0 80px; /* 64px em cima, 0 nas laterais, 80px embaixo*/
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+/* Aqui usaremos o GRID, "irmão" do Flexbox
+-> Flexbox organiza em UMA direção; Grid organiza em colunas E linhas 
+*/
+.hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+
+    display: grid;
+    /* "fr" = fração do espaço disponivel */
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    align-items: center;
+    gap: 48px;
+}
+
+/* Coluna da Esquerda */
+
+.hero-etiqueta {
+    display: inline-block;
+    background-color: var(--azul-claro);
+    color: var(--azul-escuro);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase; /* Deixa o texto em MAIÚSCULAS */
+    letter-spacing: 0.5px; /* Um pouco de espaço entre as letras */
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.hero-titulo {
+    color: var(--azul-marinho);
+    font-size: 54px;
+    font-weight: 800;
+    line-height: 1.05;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.hero-titulo span {
+    color: var(--azul-escuro);
+    display: block;
+}
+
+.hero-descricao {
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--texto-secundario);
+    max-width: 440px; /* Impede que a linha fique muito comprida*/
+    margin-bottom: 32px;
+}
+
+.hero-botoes {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap; /* Se não couber, o segundo botão desce p/ baixo */
+    margin-bottom: 32px;
+}
+
+/* Versão maior do botão */
+
+.btn-grande {
+    font-size: 15px;
+    padding: 14px 28px;
+    text-transform: uppercase;
+    gap: 8px;
+}
+
+.btn-primario {
+    background-color: var(--azul-escuro);
+    color: #FFF;
+}
+
+.btn-contorno {
+    background-color: var(--cor-fundo);
+    color: var(--azul-escuro);
+    border: 1.5px solid var(--azul-escuro);
+}
