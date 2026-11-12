@@ -369,3 +369,97 @@ ao texto */
     border-radius: 14px;
     box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
 }
+
+/* FUNCIONALIDADES */
+
+/* Faz a página "deslizar" suavemente ao clicar em um link do 
+header */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Como o header fica grudado no topo (sticky), ele cobriria o 
+começo da seção. o scroll-margin-top deixa uma folga do tamanho
+do header ao rolar até ela */
+section {
+    scroll-margin-top: 90px;
+}
+
+/* O espaçamento de cima e de baixo, também reaproveitado nas 
+próximas seções */
+.secao {
+    padding: 64px 0;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+/* Limita a largura e centraliza, igual ao .header-inner
+   Vamos reaproveitar essa classe em TODAS as próximas seções
+*/
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Titulo das seções (FUNCIONALIDADES, COMO FUNCIONA... */
+.secao-titulo {
+    color: var(--azul-marinho);
+    font-size: 24px;
+    font-weight: 800px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 40px;
+    /* border-bottom: 3px solid var(--azul-escuro); */
+}
+
+/* A linha azul embaixo do título.
+   ::after cria um "elemento extra" logo depois do conteúdo do título
+   sem precisar escrever nada no HTML.
+*/
+.secao-titulo::after {
+    content: ""; /* Obrigatório no ::after, mesmo vazio */
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: var(--azul-escuro);
+    margin: 12px auto 0;
+    border-radius: 2px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 1fr 1fr 1fr 1fr 1fr*/
+    gap: 20px;
+}
+
+.card {
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    padding: 32px 20px;
+    text-align: center;
+    transition: transform .2s ease, box-shadow .2s ease; /* Animação*/
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.card-icone {
+    font-size: 48px;
+    color: var(--azul-escuro);
+    margin-bottom: 16px;
+}
+
+.card h3 {
+    font-size: 16px;
+    color: var(--azul-marinho);
+    margin-bottom: 8px;
+}
+
+.card p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--texto-secundario);
+}
