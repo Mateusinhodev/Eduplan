@@ -463,3 +463,137 @@ próximas seções */
     line-height: 1.5;
     color: var(--texto-secundario);
 }
+
+/* =====================================================================
+   COMO FUNCIONA
+   ===================================================================== */
+
+/* Flexbox: etapas e setas lado a lado, numa linha só */
+.passos {
+    display: flex;
+    align-items: flex-start; /* Alinha tudo pelo topo */
+    justify-content: space-between;
+    gap: 8px;
+}
+
+/* Cada etapa ocupa a mesma largura (flex: 1) e tem o texto centralizado */
+.passo {
+    flex: 1;
+    text-align: center;
+}
+
+/* O círculo claro com o ícone dentro */
+.passo-circulo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;            /* 50% = círculo perfeito */
+    background-color: var(--fundo-suave);
+    border: 1px solid var(--cor-borda);
+    color: var(--azul-escuro);
+    margin: 0 auto 16px;           /* "auto" nas laterais centraliza o círculo */
+
+    /* Flexbox de novo, agora para centralizar o ícone dentro do círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* "relative" vira o ponto de referência para o número (logo abaixo) */
+    position: relative;
+}
+
+.passo-circulo .material-symbols-outlined {
+    font-size: 32px;
+}
+
+/* O número azul no canto de cima, à esquerda, do círculo.
+   "absolute" tira o elemento do fluxo normal e posiciona pelo
+   elemento "relative" mais próximo (o .passo-circulo) */
+.passo-numero {
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: var(--azul-escuro);
+    color: #FFF;
+    font-size: 13px;
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.passo h3 {
+    font-size: 15px;
+    color: var(--azul-marinho);
+    margin-bottom: 8px;
+}
+
+.passo p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--texto-secundario);
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+/* A seta entre as etapas, na altura do meio do círculo */
+.seta {
+    font-size: 28px;
+    color: #94A3B8;
+    margin-top: 22px;
+}
+
+/* =====================================================================
+   BENEFÍCIOS
+   ===================================================================== */
+
+/* Grid com 5 colunas, igual aos cartões de Funcionalidades */
+.beneficios {
+    list-style: none; /* Tira as bolinhas da lista */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin-bottom: 48px;
+}
+
+.beneficios li {
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* Linha divisória entre os itens: o mesmo truque "li + li" do Hero */
+.beneficios li + li {
+    border-left: 1px solid var(--cor-borda);
+}
+
+/* Círculo azul bem clarinho em volta do ícone (mesma ideia do .passo-circulo) */
+.beneficio-circulo {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: var(--fundo-suave);
+    color: var(--azul-escuro);
+    margin: 0 auto 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.beneficio-circulo .material-symbols-outlined {
+    font-size: 32px;
+}
+
+.beneficios h3 {
+    font-size: 15px;
+    color: var(--azul-marinho);
+    margin-bottom: 8px;
+}
+
+.beneficios p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--texto-secundario);
+}
