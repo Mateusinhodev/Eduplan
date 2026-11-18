@@ -1,0 +1,1312 @@
+/* Variáveis de CSS */
+/* 
+Aqui a gente guarda as cores do site em um só lugar. 
+Vantagem: se quiser trocar uma cor, muda só aqui e ela é atualizada em todos os lugares que a usam.
+*/
+
+:root {
+    --azul-escuro: #1D4ED8;
+    --azul: #2563EB;
+    --verde: #16A34A;
+    --verde-escuro: #15803D;
+    --texto-principal: #0F172A;
+    --texto-secundario: #475569;
+    --cor-borda: #E5E7EB;
+    --cor-fundo: #FFFFFF;
+
+    /* NOVAS (usadas no Hero) */
+    --azul-marinho: #0B1E4F;   /* cor do título grande */
+    --azul-hover: #1E40AF;     /* azul do botão quando o mouse passa por cima */
+    --azul-claro: #DBEAFE;     /* fundo da etiqueta e do botão de contorno no hover */
+    --fundo-suave: #F5F8FF;    /* fundo levemente azulado do Hero */
+}
+
+/* O "*" seleciona TODOS os elementos da página */
+* {
+    box-sizing: border-box; /* Faz o padding e a borda ficarem dentro do tamanho do que a gente define pro elemento, e não somados a ele */
+
+    /* Reseta o espaçamento padrão do navegador */
+    margin: 0; 
+    padding: 0;
+}
+
+body {
+    font-family: "Inter", sans-serif; /* Tipo de fonte do projeto */
+    color: var(--texto-principal); /* Cor da fonte */
+}
+
+.header {
+    position: sticky; /* Faz o cabeçalho "grudar no topo da tela"*/
+    top: 0; /* Coladinho no topo */
+    z-index: 100; /* ordem de empilhamento (camadas) */
+    background-color: var(--cor-fundo); /* Cor de fundo */
+    border-bottom: 1px solid var(--cor-borda); /* Borda inferior */
+}
+
+.header-inner {
+    max-width: 1200px; /* O conteúdo não ultrapassa 1200px de largura */
+    margin: 0 auto; /* margem 0 em cima/baixo e "auto" nas laterais */
+    padding: 0 24px; /* espaço interno: 0 em cima/baixo e 24px nas laterais */
+
+    /* Aplicação do Flexbox */
+
+    display: flex; /* Transforma essa div em um "container flexivel". Isso é o que permite colocar logo, menu e botões um do lado do outro */
+
+    align-items: center; /* Alinha os itens no CENTRO verticalmente dentro do header */
+
+    justify-content: space-between; /* Distribui os itens: o primeiro cola na esquerda, o último cola na direita, e sobra espaço entre eles */
+
+    gap: 24px; /* Espaço mínimo entre os itens (logo, menu e botões) */
+}
+
+/* Logo */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px; /* Tamanho da fonte*/
+    font-weight: 800;
+    color: var(--texto-principal);
+    text-decoration: none; /* Essa linha remove o sublinhado que o navegador coloca em links por padrão */
+}
+
+.logo img {
+    width: 80px; /* Define a largura da imagem da logo. */
+}
+
+/* Menu de navegação */
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none; /* O menu é uma lista (ul), e por padrão listas mostram bolinhas antes de cada item. Essa propriedade remove as bolinhas */
+
+    /* Zera espaçamentos padrão que o navegador aplica em listas */
+    margin: 0;
+    padding: 0;
+}
+
+.nav a {
+    text-decoration: none;
+    color: var(--texto-secundario);
+    font-size: 15px;
+    font-weight: 500;
+    padding: 6px 0; /* Um respiro em cima e embaixo do texto do link, facilitando o clique */
+    transition: color .2s ease; /* Diz ao navegador: quando a cor mudar (por exemplo no hover), faça essa mudança suave, em 0,2 segundos, em vez de trocar a cor de forma brusca */
+    white-space: nowrap; /* Impede que o texto do link quebre em duas linhas caso o espaço fique apertado */
+}
+
+/* :hover é aplicado quando o mouse passa por cima do link */
+.nav a:hover {
+    color: var(--texto-principal);
+}
+
+/* Botões (Entrar / Cadastrar ) */
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Estilo BASE, compartilhado pelos dois botões */ 
+
+.btn {
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px; /* Arredonda os cantos do botão */
+    padding: 10px 18px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    text-decoration: none;
+
+    /* Centralizam o texto dentro do botão, tanto na horizontal quanto na vertical */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-entrar {
+    background-color: var(--cor-fundo);
+    color: var(--texto-principal);
+    border-color: var(--cor-borda);
+}
+
+.btn-entrar:hover {
+    border-color: var(--texto-principal);
+}
+
+.btn-cadastrar {
+    background-color: var(--azul-escuro);
+    color: #FFF;
+}
+
+.btn-cadastrar:hover {
+    background-color: var(--azul-hover);
+}
+
+/* Menu Hamburguer */
+
+.hamburguer {
+    display: none; /* Ocultando botão do menu */
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Some no desktop, só existe no mobile */
+.nav-actions {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .hamburguer {
+        display: block;
+    }
+
+    .actions {
+        display: none;
+        /* Os botões originais do header somem no
+        mobile, porque agora eles moram dentro do
+        menu */
+    }
+
+    .nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--cor-fundo);
+        border-bottom: 1px solid var(--cor-borda);
+        padding: 16px 24px;
+        gap: 16px;
+    }
+
+    /* Classe que o JavaScript vai adicionar/remover para mostrar o menu */
+    .nav.ativo {
+        display: flex;
+    }
+
+    .nav-actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 8px;
+        border-top: 1px solid var(--cor-borda);
+        padding-top: 16px;
+        width: 100%;
+    }
+
+    .nav-actions .btn {
+        flex: 1;
+        /* Os dois botões dividem a largura igualmente */
+    }
+}
+
+
+/* =====================================================================
+   HERO — tudo daqui para baixo é da seção Hero
+   ===================================================================== */
+
+/* Ícones do Google: deixamos o tamanho padrão menor e alinhado ao texto */
+.material-symbols-outlined {
+    font-size: 20px;
+    line-height: 1; 
+    /* Segurança: enquanto a fonte de ícones carrega, o navegador mostraria o NOME
+       do ícone (ex.: "verified_user"). Estas linhas limitam o espaço a um quadradinho,
+       para o texto não "vazar" e bagunçar o layout */
+    display: inline-block;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    flex-shrink: 0; /* O ícone nunca encolhe dentro de um flex */
+}
+
+.hero {
+    background-color: var(--fundo-suave);
+    padding: 64px 0 80px; /* 64px em cima, 0 nas laterais, 80px embaixo */
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+/* Agora usamos o GRID, "irmão" do Flexbox.
+   Flexbox organiza em UMA direção; Grid organiza em colunas E linhas.
+   Aqui: 2 colunas, a da direita (imagem) um pouco maior que a da esquerda */
+.hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+
+    display: grid;
+    /* "fr" = fração do espaço disponível.
+       minmax(0, ...) impede que um conteúdo largo "estique" a coluna além da tela */
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    align-items: center;
+    gap: 48px;
+}
+
+/* ---------- Coluna da esquerda ---------- */
+
+/* Etiqueta azul clarinha acima do título */
+.hero-etiqueta {
+    display: inline-block; /* <span> sozinho não aceita padding direito; inline-block resolve */
+    background-color: var(--azul-claro);
+    color: var(--azul-escuro);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase; /* Deixa o texto em MAIÚSCULAS */
+    letter-spacing: 0.5px; /* Um pouco de espaço entre as letras */
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.hero-titulo {
+    color: var(--azul-marinho);
+    font-size: 54px;
+    font-weight: 800;
+    line-height: 1.05; /* Linhas bem próximas, como no esboço */
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+/* Só a palavra dentro do <span> fica azul.
+   "display: block" faz ela começar em uma linha nova */
+.hero-titulo span {
+    color: var(--azul-escuro);
+    display: block;
+}
+
+.hero-descricao {
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--texto-secundario);
+    max-width: 440px; /* Impede que a linha fique comprida demais */
+    margin-bottom: 32px;
+}
+
+.hero-botoes {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap; /* Se não couber, o segundo botão desce para a linha de baixo */
+    margin-bottom: 32px;
+}
+
+/* Versão maior do botão */
+.btn-grande {
+    font-size: 15px;
+    padding: 14px 28px;
+    text-transform: uppercase;
+    gap: 8px; /* Espaço entre o ícone ▶ e o texto */
+}
+
+/* Botão azul cheio */
+.btn-primario {
+    background-color: var(--azul-escuro);
+    color: #FFF;
+}
+
+.btn-primario:hover {
+    background-color: var(--azul-hover);
+}
+
+/* Botão só com a borda azul */
+.btn-contorno {
+    background-color: var(--cor-fundo);
+    color: var(--azul-escuro);
+    border: 1.5px solid var(--azul-escuro);
+}
+
+.btn-contorno:hover {
+    background-color: var(--azul-claro);
+}
+
+/* Faixa com as 3 vantagens */
+.hero-vantagens {
+    list-style: none;
+    display: flex;
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    border-radius: 10px;
+    padding: 14px 0;
+    max-width: 460px;
+}
+
+.hero-vantagens li {
+    flex: 1; /* Os 3 itens dividem a largura igualmente */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 14px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--texto-secundario);
+}
+
+/* Linha divisória entre os itens.
+   "li + li" = todo <li> que vem DEPOIS de outro <li> (ou seja, o 2º e o 3º) */
+.hero-vantagens li + li {
+    border-left: 1px solid var(--cor-borda);
+}
+
+.hero-vantagens .material-symbols-outlined {
+    color: var(--azul-escuro);
+    font-size: 26px;
+}
+
+.hero-vantagens strong {
+    display: block;
+    color: var(--texto-principal);
+    font-weight: 600;
+}
+
+/* ---------- Coluna da direita: imagem do Dashboard ---------- */
+
+.hero-imagem {
+    width: 100%;  /* A imagem ocupa toda a largura da coluna... */
+    height: auto; /* ...e a altura acompanha, sem deformar */
+    display: block;
+    background-color: var(--cor-fundo);
+    border: 2px solid var(--texto-principal);
+    border-radius: 14px; /* Cantos arredondados */
+    /* Sombra: deslocamento X, deslocamento Y, desfoque e cor (com transparência) */
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+}
+
+/* ---------- Hero no tablet e celular ---------- */
+
+/* Telas até 1024px: a imagem desce para baixo do texto */
+@media (max-width: 1024px) {
+    .hero-inner {
+        grid-template-columns: minmax(0, 1fr); /* 1 coluna só: a imagem desce para baixo do texto */
+    }
+}
+
+/* Telas até 768px (celular) */
+@media (max-width: 768px) {
+    .hero {
+        padding: 40px 0 56px;
+    }
+
+    .hero-titulo {
+        font-size: 36px;
+    }
+
+    .hero-descricao {
+        font-size: 16px;
+    }
+
+    /* Botões um embaixo do outro, ocupando a largura toda */
+    .hero-botoes {
+        flex-direction: column;
+    }
+
+    /* Vantagens também empilhadas, com linha divisória em cima em vez de do lado */
+    .hero-vantagens {
+        flex-direction: column;
+        gap: 12px;
+        max-width: none;
+    }
+
+    .hero-vantagens li + li {
+        border-left: none;
+        border-top: 1px solid var(--cor-borda);
+        padding-top: 12px;
+    }
+}
+
+/* =====================================================================
+   FUNCIONALIDADES (NOVO)
+   ===================================================================== */
+
+/* Faz a página "deslizar" suavemente ao clicar em um link como href="#funcionalidades" */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Como o header fica grudado no topo (sticky), ele cobriria o começo da seção.
+   scroll-margin-top deixa uma folga do tamanho do header ao rolar até ela */
+section {
+    scroll-margin-top: 90px;
+}
+
+/* .container: limita a largura e centraliza, igual ao .header-inner.
+   Vamos reaproveitar essa classe em TODAS as próximas seções */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* .secao: o espaçamento de cima e de baixo, também reaproveitado nas próximas seções */
+.secao {
+    padding: 64px 0;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+/* Título das seções (FUNCIONALIDADES, COMO FUNCIONA...) */
+.secao-titulo {
+    color: var(--azul-marinho);
+    font-size: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center; /* Centraliza o texto */
+    margin-bottom: 40px;
+}
+
+/* A linha azul embaixo do título.
+   ::after cria um "elemento extra" logo depois do conteúdo do título,
+   sem precisar escrever nada no HTML */
+.secao-titulo::after {
+    content: "";          /* Obrigatório no ::after, mesmo vazio */
+    display: block;       /* Faz a linha ficar embaixo do texto */
+    width: 48px;
+    height: 3px;
+    background-color: var(--azul-escuro);
+    margin: 12px auto 0;  /* 12px em cima; "auto" nas laterais centraliza a linha */
+    border-radius: 2px;
+}
+
+/* A grade de cartões: 5 colunas do mesmo tamanho */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* repeat(5, 1fr) = "1fr 1fr 1fr 1fr 1fr" */
+    gap: 20px;
+}
+
+.card {
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    padding: 32px 20px;
+    text-align: center;
+    transition: transform .2s ease, box-shadow .2s ease; /* Animação suave no hover */
+}
+
+/* Ao passar o mouse, o cartão "sobe" um pouquinho e ganha sombra */
+.card:hover {
+    transform: translateY(-4px); /* Move 4px para cima */
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+/* Ícone grande e azul no topo do cartão */
+.card-icone {
+    font-size: 48px;
+    color: var(--azul-escuro);
+    margin-bottom: 16px;
+}
+
+.card h3 {
+    font-size: 16px;
+    color: var(--azul-marinho);
+    margin-bottom: 8px;
+}
+
+.card p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--texto-secundario);
+}
+
+/* ---------- Funcionalidades no tablet e celular ---------- */
+
+/* Tablet: 2 cartões por linha */
+@media (max-width: 1024px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Celular: 1 cartão por linha */
+@media (max-width: 768px) {
+    .secao {
+        padding: 48px 0;
+    }
+
+    .secao-titulo {
+        font-size: 20px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =====================================================================
+   COMO FUNCIONA (NOVO)
+   ===================================================================== */
+
+/* Flexbox: etapas e setas lado a lado, numa linha só */
+.passos {
+    display: flex;
+    align-items: flex-start; /* Alinha tudo pelo topo */
+    justify-content: space-between;
+    gap: 8px;
+}
+
+/* Cada etapa ocupa a mesma largura (flex: 1) e tem o texto centralizado */
+.passo {
+    flex: 1;
+    text-align: center;
+}
+
+/* O círculo claro com o ícone dentro */
+.passo-circulo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;            /* 50% = círculo perfeito */
+    background-color: var(--fundo-suave);
+    border: 1px solid var(--cor-borda);
+    color: var(--azul-escuro);
+    margin: 0 auto 16px;           /* "auto" nas laterais centraliza o círculo */
+
+    /* Flexbox de novo, agora para centralizar o ícone dentro do círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* "relative" vira o ponto de referência para o número (logo abaixo) */
+    position: relative;
+}
+
+.passo-circulo .material-symbols-outlined {
+    font-size: 32px;
+}
+
+/* O número azul no canto de cima, à esquerda, do círculo.
+   "absolute" tira o elemento do fluxo normal e posiciona pelo
+   elemento "relative" mais próximo (o .passo-circulo) */
+.passo-numero {
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: var(--azul-escuro);
+    color: #FFF;
+    font-size: 13px;
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.passo h3 {
+    font-size: 15px;
+    color: var(--azul-marinho);
+    margin-bottom: 8px;
+}
+
+.passo p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--texto-secundario);
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+/* A seta entre as etapas, na altura do meio do círculo */
+.seta {
+    font-size: 28px;
+    color: #94A3B8;
+    margin-top: 22px;
+}
+
+/* =====================================================================
+   BENEFÍCIOS (NOVO)
+   ===================================================================== */
+
+/* Grid com 5 colunas, igual aos cartões de Funcionalidades */
+.beneficios {
+    list-style: none; /* Tira as bolinhas da lista */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin-bottom: 48px;
+}
+
+.beneficios li {
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* Linha divisória entre os itens: o mesmo truque "li + li" do Hero */
+.beneficios li + li {
+    border-left: 1px solid var(--cor-borda);
+}
+
+/* Círculo azul bem clarinho em volta do ícone (mesma ideia do .passo-circulo) */
+.beneficio-circulo {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: var(--fundo-suave);
+    color: var(--azul-escuro);
+    margin: 0 auto 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.beneficio-circulo .material-symbols-outlined {
+    font-size: 32px;
+}
+
+.beneficios h3 {
+    font-size: 15px;
+    color: var(--azul-marinho);
+    margin-bottom: 8px;
+}
+
+.beneficios p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--texto-secundario);
+}
+
+/* =====================================================================
+   CHAMADA FINAL - CTA (NOVO)
+   ===================================================================== */
+
+/* Caixa azul clarinha com ícone, texto e botão lado a lado (Flexbox) */
+.cta {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    background-color: var(--fundo-suave);
+    border: 1px solid var(--azul-claro);
+    border-radius: 12px;
+    padding: 32px 48px;
+}
+
+/* Quadrado azul com o ícone de capelo */
+.cta-icone {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    background-color: var(--azul-escuro);
+    color: #FFF;
+    flex-shrink: 0; /* O quadrado nunca encolhe */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cta-icone .material-symbols-outlined {
+    font-size: 36px;
+}
+
+/* O texto ocupa todo o espaço do meio, empurrando o botão para a direita */
+.cta-texto {
+    flex: 1;
+}
+
+.cta-texto h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--azul-marinho);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.cta-texto p {
+    color: var(--texto-secundario);
+}
+
+/* ---------- Como Funciona, Benefícios e CTA no tablet e celular ---------- */
+
+/* Tablet: as etapas e os benefícios ficam um embaixo do outro */
+@media (max-width: 1024px) {
+    .passos {
+        flex-direction: column; /* Coluna em vez de linha */
+        align-items: center;
+        gap: 32px;
+    }
+
+    /* Em coluna, as setas para o lado não fazem sentido: escondemos */
+    .seta {
+        display: none;
+    }
+
+    .beneficios {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px 0; /* 32px entre as linhas, 0 entre as colunas */
+    }
+
+    /* Sem divisória lateral quando os itens quebram de linha */
+    .beneficios li + li {
+        border-left: none;
+    }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+    .beneficios {
+        grid-template-columns: 1fr;
+    }
+
+    /* CTA em coluna e centralizado */
+    .cta {
+        flex-direction: column;
+        text-align: center;
+        padding: 32px 24px;
+        gap: 20px;
+    }
+
+    .cta-texto h2 {
+        font-size: 18px;
+    }
+
+    .cta .btn {
+        width: 100%; /* Botão ocupa toda a largura */
+    }
+}
+
+
+/* =====================================================================
+   FOOTER / RODAPÉ (NOVO)
+   ===================================================================== */
+
+.footer {
+    background-color: var(--fundo-suave);
+    border-top: 1px solid var(--cor-borda);
+    font-size: 14px;
+    color: var(--texto-secundario);
+}
+
+/* Grid com 4 colunas. A primeira (logo) é um pouco mais larga */
+.footer-colunas {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 32px;
+    padding-top: 48px;
+    padding-bottom: 40px;
+}
+
+/* Logo do rodapé: imagem e nome lado a lado */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.footer-logo img {
+    width: 48px;
+}
+
+/* A cor vai no <span>, porque a regra ".footer a" (mais abaixo) é mais
+   específica que ".footer-logo" e deixaria o nome cinza */
+.footer-logo span {
+    color: var(--azul-marinho);
+}
+
+.footer-sobre p {
+    max-width: 280px;
+    line-height: 1.5;
+}
+
+/* Títulos das colunas (Navegação, Suporte, Contato) */
+.footer h3 {
+    font-size: 14px;
+    color: var(--azul-marinho);
+    margin-bottom: 12px;
+}
+
+/* Listas de links: sem bolinhas e um embaixo do outro */
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+/* Todos os links do rodapé: sem sublinhado e na cor do texto */
+.footer a {
+    color: var(--texto-secundario);
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.footer a:hover {
+    color: var(--azul-escuro);
+}
+
+/* <address> deixa o texto em itálico por padrão; aqui voltamos ao normal */
+.footer-contato {
+    font-style: normal;
+}
+
+/* E-mail e telefone: ícone e texto lado a lado */
+.footer-contato > a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.footer-contato .material-symbols-outlined {
+    color: var(--azul-marinho);
+}
+
+/* Redes sociais: pequenos botões com borda */
+.footer-redes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.footer-redes a {
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    padding: 6px 10px;
+    background-color: var(--cor-fundo);
+}
+
+/* Faixa do copyright, com uma linha em cima */
+.footer-copyright {
+    border-top: 1px solid var(--cor-borda);
+    text-align: center;
+    font-size: 13px;
+    padding: 16px 24px;
+}
+
+/* ---------- Rodapé no tablet e celular ---------- */
+
+/* Tablet: 2 colunas */
+@media (max-width: 1024px) {
+    .footer-colunas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Celular: 1 coluna */
+@media (max-width: 768px) {
+    .footer-colunas {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+}
+
+/* =====================================================================
+   SOBRE (NOVO)
+   ===================================================================== */
+
+/* Grid com 2 colunas: o texto (esquerda) é um pouco maior que os destaques */
+.sobre-conteudo {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 48px;
+    align-items: center; /* Centraliza as duas colunas na vertical */
+}
+
+.sobre-texto p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--texto-secundario);
+    margin-bottom: 16px; /* Espaço entre um parágrafo e outro */
+}
+
+/* <strong> = texto em negrito. Aqui também deixamos na cor do título */
+.sobre-texto strong {
+    color: var(--azul-marinho);
+}
+
+/* Lista dos 3 destaques: sem bolinhas e um embaixo do outro */
+.sobre-destaques {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Cada destaque é um cartão com o círculo do ícone ao lado do texto */
+.sobre-destaques li {
+    display: flex;          /* Ícone e texto lado a lado */
+    align-items: center;
+    gap: 16px;
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    padding: 16px 20px;
+}
+
+/* O .beneficio-circulo tem "margin: 0 auto 16px" (para ficar centralizado lá em Benefícios).
+   Aqui ele fica ao lado do texto, então zeramos a margem e impedimos que encolha */
+.sobre-destaques .beneficio-circulo {
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.sobre-destaques h3 {
+    font-size: 16px;
+    color: var(--azul-marinho);
+    margin-bottom: 4px;
+}
+
+.sobre-destaques p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--texto-secundario);
+}
+
+/* =====================================================================
+   CONTATO (NOVO)
+   ===================================================================== */
+
+/* Grid com 2 colunas: informações (esquerda) e formulário (direita, maior) */
+.contato-conteudo {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 48px;
+    align-items: start; /* As duas colunas começam no topo */
+}
+
+.contato-info h3 {
+    font-size: 20px;
+    color: var(--azul-marinho);
+    margin-bottom: 8px;
+}
+
+.contato-info p {
+    line-height: 1.6;
+    color: var(--texto-secundario);
+    margin-bottom: 24px;
+}
+
+/* Lista de contatos: ícone + texto lado a lado */
+.contato-lista {
+    list-style: none;
+}
+
+.contato-lista li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    color: var(--texto-principal);
+}
+
+.contato-lista .material-symbols-outlined {
+    color: var(--azul-escuro);
+    font-size: 24px;
+}
+
+/* O formulário é um cartão branco com os campos um embaixo do outro */
+.contato-form {
+    display: flex;
+    flex-direction: column; /* Um campo embaixo do outro */
+    gap: 8px;
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    padding: 32px;
+}
+
+.contato-form label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--azul-marinho);
+    margin-top: 8px;
+}
+
+/* A vírgula aplica a MESMA regra para os dois seletores: input e textarea */
+.contato-form input,
+.contato-form textarea {
+    font-family: inherit;   /* Usa a mesma fonte do site (o navegador usaria outra) */
+    font-size: 15px;
+    padding: 12px 14px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    resize: vertical;       /* O textarea só pode ser esticado para baixo */
+}
+
+/* :focus = quando o campo está selecionado (com o cursor dentro) */
+.contato-form input:focus,
+.contato-form textarea:focus {
+    outline: 2px solid var(--azul-escuro);
+    border-color: transparent;
+}
+
+.contato-form button {
+    margin-top: 16px;
+}
+
+/* Aviso que aparece depois de enviar (o texto vem do JavaScript) */
+.form-aviso {
+    color: var(--verde-escuro);
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ---------- Sobre e Contato no tablet e celular ---------- */
+
+/* Tablet: as duas colunas viram uma só (uma embaixo da outra) */
+@media (max-width: 1024px) {
+    .sobre-conteudo,
+    .contato-conteudo {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
+
+/* Celular: menos espaço interno no formulário */
+@media (max-width: 768px) {
+    .contato-form {
+        padding: 24px 20px;
+    }
+}
+
+
+/* =====================================================================
+   LOGIN E CADASTRO (NOVO) — usado em login.html e cadastro.html
+   ===================================================================== */
+
+/* A tela é dividida em 2 colunas iguais e ocupa, no mínimo, a altura toda da janela.
+   100vh = 100% da altura da tela ("vh" = viewport height) */
+.acesso {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+}
+
+/* ---------- Painel azul da esquerda ---------- */
+
+.acesso-painel {
+    background-color: var(--azul-escuro);
+    color: #FFF;
+    padding: 48px;
+
+    /* Flexbox em coluna: logo, título, texto e lista um embaixo do outro,
+       centralizados na vertical */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+}
+
+.acesso-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #FFF;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 24px;
+}
+
+.acesso-logo .material-symbols-outlined {
+    font-size: 32px;
+}
+
+.acesso-painel h2 {
+    font-size: 36px;
+    line-height: 1.15;
+    font-weight: 800;
+    max-width: 420px;
+}
+
+.acesso-painel p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--azul-claro);
+    max-width: 420px;
+}
+
+.acesso-vantagens {
+    list-style: none;
+    margin-top: 16px;
+}
+
+.acesso-vantagens li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+/* ---------- Área do formulário (direita) ---------- */
+
+.acesso-conteudo {
+    background-color: var(--fundo-suave);
+    padding: 80px 24px 40px; /* Mais espaço em cima, para o link "Voltar" não encostar no cartão */
+
+    /* Centraliza o cartão do formulário no meio da área */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Referência para o link "Voltar" (posição absoluta) */
+}
+
+/* "Voltar ao início" preso no canto de cima, à esquerda */
+.acesso-voltar {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: var(--texto-secundario);
+    text-decoration: none;
+}
+
+.acesso-voltar:hover {
+    color: var(--azul-escuro);
+}
+
+/* O cartão branco com o formulário */
+.acesso-card {
+    width: 100%;
+    max-width: 420px; /* Não fica largo demais em telas grandes */
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    border-radius: 16px;
+    padding: 40px 32px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.acesso-card h1 {
+    font-size: 28px;
+    color: var(--azul-marinho);
+}
+
+.acesso-subtitulo {
+    color: var(--texto-secundario);
+    margin-bottom: 24px;
+}
+
+/* ---------- Campos do formulário (mesma ideia do formulário de Contato) ---------- */
+
+.acesso-form {
+    display: flex;
+    flex-direction: column; /* Um campo embaixo do outro */
+    gap: 6px;
+}
+
+.acesso-form label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--azul-marinho);
+    margin-top: 10px;
+}
+
+/* A mesma regra para input, select (lista de opções) */
+.acesso-form input,
+.acesso-form select {
+    font-family: inherit;
+    font-size: 15px;
+    padding: 12px 14px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    background-color: var(--cor-fundo);
+    width: 100%;
+}
+
+.acesso-form input:focus,
+.acesso-form select:focus {
+    outline: 2px solid var(--azul-escuro);
+    border-color: transparent;
+}
+
+/* Linha "Lembrar de mim" + "Esqueci minha senha" */
+.acesso-opcoes {
+    display: flex;
+    justify-content: space-between; /* Um em cada ponta */
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.acesso-opcoes a,
+.acesso-trocar a,
+.checkbox a {
+    color: var(--azul-escuro);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.acesso-opcoes a:hover,
+.acesso-trocar a:hover,
+.checkbox a:hover {
+    text-decoration: underline;
+}
+
+/* Checkbox e texto lado a lado */
+.acesso-form .checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 400;
+    color: var(--texto-secundario);
+}
+
+/* O checkbox não pode ficar com width: 100% como os outros campos */
+.acesso-form .checkbox input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--azul-escuro); /* Cor da caixinha quando marcada */
+}
+
+.acesso-form button[type="submit"] {
+    margin-top: 16px;
+}
+
+/* "Ainda não tem conta? Cadastre-se" */
+.acesso-trocar {
+    text-align: center;
+    font-size: 14px;
+    color: var(--texto-secundario);
+    margin-top: 24px;
+}
+
+/* ---------- Login e Cadastro no celular ---------- */
+
+@media (max-width: 900px) {
+    /* Só uma coluna: o formulário */
+    .acesso {
+        grid-template-columns: 1fr;
+    }
+
+    /* O painel azul some no celular */
+    .acesso-painel {
+        display: none;
+    }
+
+    /* O "Voltar" deixa de ser absoluto e fica em cima do cartão */
+    .acesso-voltar {
+        position: static;
+        align-self: flex-start;
+        margin-bottom: 24px;
+    }
+
+    .acesso-conteudo {
+        justify-content: flex-start;
+        padding-top: 32px;
+    }
+
+    .acesso-card {
+        padding: 32px 20px;
+    }
+}

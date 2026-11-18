@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduplan</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Importando a fonte do projeto -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- NOVO: biblioteca de ícones do Google (Material Symbols).
+         Para usar um ícone, basta escrever o NOME dele dentro de um <span>:
+         <span class="material-symbols-outlined">home</span>
+         Lista de ícones: fonts.google.com/icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+</head>
+<body>
+    <!-- ===================== HEADER ===================== -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="#inicio" class="logo">
+                <img src="./assets/image.png" alt="Logo do Eduplan">
+
+                <h2 style="color: #0B1E4F;">Edu <span style="color: #2563EB;">Plan</span></h2>
+            </a>
+
+            <!-- Cada link aponta para o "id" de uma seção da página.
+                 Ex.: href="#sobre" leva até <section id="sobre"> -->
+            <ul class="nav" id="nav">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#funcionalidades">Recursos</a></li>
+                <li><a href="#beneficios">Benefícios</a></li>
+                <li><a href="#contato">Contato</a></li>
+
+                <li class="nav-actions">
+                    <a href="./login.html" class="btn btn-entrar">Entrar</a>
+                    <a href="./cadastro.html" class="btn btn-cadastrar">Cadastrar</a>
+                </li>
+            </ul>
+
+            <div class="actions">
+                <a href="./login.html" class="btn btn-entrar">Entrar</a>
+                <a href="./cadastro.html" class="btn btn-cadastrar">Cadastrar</a>
+            </div>
+
+            <button class="hamburguer" id="btn-menu">☰</button>
+        </div>
+    </header>
+
+    <!-- ===================== HERO ===================== -->
+    <!-- "Hero" é o nome da primeira seção do site, a grande "vitrine".
+         <main> marca o conteúdo principal da página (as próximas seções também vão aqui dentro) -->
+    <main>
+        <section class="hero" id="inicio">
+            <!-- Mesmo "envelope" do header: limita a largura e organiza as duas colunas -->
+            <div class="hero-inner">
+
+                <!-- ========== COLUNA DA ESQUERDA: textos e botões ========== -->
+                <div class="hero-texto">
+                    <span class="hero-etiqueta">Plataforma para professores</span>
+
+                    <!-- O texto está escrito normal. Quem deixa em MAIÚSCULAS é o CSS (text-transform).
+                         O <span> permite pintar só a palavra "inteligente" de azul -->
+                    <h1 class="hero-titulo">
+                        Planejamento pedagógico <span>inteligente</span>
+                    </h1>
+
+                    <p class="hero-descricao">
+                        Organize planos de aula, acompanhe turmas e centralize sua
+                        rotina acadêmica em um só lugar.
+                    </p>
+
+                    <div class="hero-botoes">
+                        <a href="#" class="btn btn-primario btn-grande">Começar agora</a>
+                        <a href="#funcionalidades" class="btn btn-contorno btn-grande">
+                            <span class="material-symbols-outlined">play_arrow</span>
+                            Ver recursos
+                        </a>
+                    </div>
+
+                    <!-- Faixa com as 3 vantagens -->
+                    <ul class="hero-vantagens">
+                        <li>
+                            <span class="material-symbols-outlined">verified_user</span>
+                            <p><strong>Seguro</strong> Seus dados protegidos</p>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">cloud</span>
+                            <p>Acesso em qualquer lugar</p>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">schedule</span>
+                            <p>Economize tempo</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- ========== COLUNA DA DIREITA: imagem do Dashboard ========== -->
+                <!-- O "alt" descreve a imagem para quem usa leitor de tela
+                     (e aparece no lugar dela se o arquivo não for encontrado) -->
+                <img
+                    src="./assets/dashboard.png"
+                    alt="Tela do Dashboard do EduPlan com próximas aulas, calendário e resumo de planos"
+                    class="hero-imagem"
+                >
+
+            </div>
+        </section>
+
+        <!-- ===================== SOBRE ===================== -->
+        <!-- Apresenta o projeto: o que é, para quem é e quem está desenvolvendo -->
+        <section class="secao" id="sobre">
+            <div class="container">
+                <!-- Mesmo título usado nas outras seções (com a linha azul embaixo) -->
+                <h2 class="secao-titulo">Sobre o EduPlan</h2>
+
+                <!-- Grid com duas colunas: texto à esquerda, destaques à direita -->
+                <div class="sobre-conteudo">
+
+                    <!-- ========== COLUNA DA ESQUERDA: o texto ========== -->
+                    <div class="sobre-texto">
+                        <p>
+                            O <strong>EduPlan</strong> é uma plataforma web e mobile pensada para
+                            facilitar a rotina do professor. Ela reúne em um só lugar o
+                            planejamento das aulas e o acompanhamento das turmas.
+                        </p>
+                        <p>
+                            Sabemos que muitos professores planejam com pressa ou no fim do dia,
+                            já cansados. Por isso, o EduPlan foi pensado para ser
+                            <strong>simples, rápido e intuitivo</strong>.
+                        </p>
+                    </div>
+
+                    <!-- ========== COLUNA DA DIREITA: 3 destaques ========== -->
+                    <!-- Uma lista, porque são três itens do mesmo tipo -->
+                    <ul class="sobre-destaques">
+                        <li>
+                            <!-- Reaproveitamos o círculo da seção Benefícios -->
+                            <div class="beneficio-circulo"><span class="material-symbols-outlined">flag</span></div>
+                            <div>
+                                <h3>Objetivo</h3>
+                                <p>Centralizar o planejamento pedagógico em uma interface fácil de usar.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="beneficio-circulo"><span class="material-symbols-outlined">person</span></div>
+                            <div>
+                                <h3>Para quem</h3>
+                                <p>Professores da Educação Básica e do Ensino Superior.</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== FUNCIONALIDADES ===================== -->
+        <!-- Cada cartão é um Requisito Funcional (RF) da documentação do projeto -->
+        <section class="secao" id="funcionalidades">
+            <!-- .container limita a largura, igual ao header-inner e ao hero-inner -->
+            <div class="container">
+                <h2 class="secao-titulo">Funcionalidades</h2>
+
+                <!-- A grade (Grid) que organiza os 5 cartões -->
+                <div class="cards">
+
+                    <!-- <article> = um conteúdo que faz sentido sozinho, como um cartão -->
+                    <article class="card">
+                        <span class="material-symbols-outlined card-icone">description</span>
+                        <h3>Planos de Aula</h3>
+                        <p>Crie, edite, duplique e exporte seus planos em PDF ou DOCX de forma rápida.</p>
+                    </article>
+
+                    <article class="card">
+                        <span class="material-symbols-outlined card-icone">calendar_month</span>
+                        <h3>Calendário Acadêmico</h3>
+                        <p>Visualize prazos, provas, eventos e feriados em um calendário integrado.</p>
+                    </article>
+
+                    <article class="card">
+                        <span class="material-symbols-outlined card-icone">groups</span>
+                        <h3>Diário de Classe</h3>
+                        <p>Registre frequência e notas dos alunos por turma de maneira simples e eficiente.</p>
+                    </article>
+
+                    <article class="card">
+                        <span class="material-symbols-outlined card-icone">folder_open</span>
+                        <h3>Banco de Atividades</h3>
+                        <p>Armazene exercícios, textos, mídias e documentos no seu repositório pessoal.</p>
+                    </article>
+
+                    <article class="card">
+                        <span class="material-symbols-outlined card-icone">track_changes</span>
+                        <h3>Integração BNCC</h3>
+                        <p>Busque competências e habilidades automaticamente para seus planos de aula.</p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== COMO FUNCIONA (NOVO) ===================== -->
+        <!-- As 5 etapas do "Fluxo Principal: Criação de Plano de Aula" da documentação -->
+        <section class="secao" id="como-funciona">
+            <div class="container">
+                <!-- Reaproveitamos a classe do título da seção Funcionalidades -->
+                <h2 class="secao-titulo">Como funciona</h2>
+
+                <!-- Flexbox coloca as etapas e as setas lado a lado -->
+                <div class="passos">
+
+                    <div class="passo">
+                        <!-- O círculo com o ícone. O número fica "pendurado" no canto dele -->
+                        <div class="passo-circulo">
+                            <span class="passo-numero">1</span>
+                            <span class="material-symbols-outlined">groups</span>
+                        </div>
+                        <h3>Selecione a Turma</h3>
+                        <p>Escolha a turma e a disciplina que deseja planejar.</p>
+                    </div>
+
+                    <!-- A seta é só enfeite: aria-hidden="true" faz o leitor de tela pular -->
+                    <span class="seta" aria-hidden="true">→</span>
+
+                    <div class="passo">
+                        <div class="passo-circulo">
+                            <span class="passo-numero">2</span>
+                            <span class="material-symbols-outlined">description</span>
+                        </div>
+                        <h3>Defina o Conteúdo</h3>
+                        <p>Informe o tema da aula e os objetivos de aprendizagem.</p>
+                    </div>
+
+                    <span class="seta" aria-hidden="true">→</span>
+
+                    <div class="passo">
+                        <div class="passo-circulo">
+                            <span class="passo-numero">3</span>
+                            <span class="material-symbols-outlined">format_list_bulleted</span>
+                        </div>
+                        <h3>Monte a Metodologia</h3>
+                        <p>Descreva as etapas e estratégias que serão utilizadas na aula.</p>
+                    </div>
+
+                    <span class="seta" aria-hidden="true">→</span>
+
+                    <div class="passo">
+                        <div class="passo-circulo">
+                            <span class="passo-numero">4</span>
+                            <span class="material-symbols-outlined">inventory_2</span>
+                        </div>
+                        <h3>Adicione Recursos</h3>
+                        <p>Liste os materiais e recursos necessários para a aula.</p>
+                    </div>
+
+                    <span class="seta" aria-hidden="true">→</span>
+
+                    <div class="passo">
+                        <div class="passo-circulo">
+                            <span class="passo-numero">5</span>
+                            <span class="material-symbols-outlined">star</span>
+                        </div>
+                        <h3>Configure a Avaliação</h3>
+                        <p>Defina os critérios e instrumentos para avaliar o aprendizado.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== BENEFÍCIOS (NOVO) ===================== -->
+        <section class="secao" id="beneficios">
+            <div class="container">
+                <h2 class="secao-titulo">Benefícios para você</h2>
+
+                <!-- Uma lista (ul), porque são vários itens do mesmo tipo -->
+                <ul class="beneficios">
+                    <li>
+                        <div class="beneficio-circulo"><span class="material-symbols-outlined">bolt</span></div>
+                        <h3>Mais Produtividade</h3>
+                        <p>Organize sua rotina e ganhe tempo no seu dia a dia.</p>
+                    </li>
+                    <li>
+                        <div class="beneficio-circulo"><span class="material-symbols-outlined">dark_mode</span></div>
+                        <h3>Modo Escuro</h3>
+                        <p>Mais conforto visual para planejar suas aulas a qualquer hora.</p>
+                    </li>
+                    <li>
+                        <div class="beneficio-circulo"><span class="material-symbols-outlined">psychology</span></div>
+                        <h3>Menos Carga Cognitiva</h3>
+                        <p>Interface intuitiva que facilita seu trabalho e reduz a sobrecarga.</p>
+                    </li>
+                    <li>
+                        <div class="beneficio-circulo"><span class="material-symbols-outlined">cloud</span></div>
+                        <h3>Tudo em um Só Lugar</h3>
+                        <p>Centralize seus planos, atividades e turmas em uma única plataforma.</p>
+                    </li>
+                    <li>
+                        <div class="beneficio-circulo"><span class="material-symbols-outlined">verified_user</span></div>
+                        <h3>Segurança</h3>
+                        <p>Seus dados e informações protegidos com tecnologia de ponta.</p>
+                    </li>
+                </ul>
+
+                <!-- ========== CHAMADA FINAL (CTA) ========== -->
+                <!-- CTA = "Call to Action" (chamada para ação): convida o visitante a se cadastrar -->
+                <div class="cta">
+                    <div class="cta-icone"><span class="material-symbols-outlined">school</span></div>
+
+                    <div class="cta-texto">
+                        <h2>Comece a organizar suas aulas hoje</h2>
+                        <p>Crie sua conta gratuitamente e experimente o EduPlan.</p>
+                    </div>
+
+                    <!-- Reaproveitamos as classes de botão do Hero! -->
+                    <a href="./cadastro.html" class="btn btn-primario btn-grande">Criar conta gratuita</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== CONTATO (NOVO) ===================== -->
+        <section class="secao" id="contato">
+            <div class="container">
+                <h2 class="secao-titulo">Contato</h2>
+
+                <!-- Grid com duas colunas: informações à esquerda, formulário à direita -->
+                <div class="contato-conteudo">
+
+                    <!-- ========== COLUNA DA ESQUERDA: informações ========== -->
+                    <div class="contato-info">
+                        <h3>Fale com a gente</h3>
+                        <p>Tem uma dúvida, sugestão ou quer testar o EduPlan na sua escola? Envie uma mensagem!</p>
+
+                        <ul class="contato-lista">
+                            <li>
+                                <span class="material-symbols-outlined">mail</span>
+                                contato@eduplan.com.br
+                            </li>
+                            <li>
+                                <span class="material-symbols-outlined">call</span>
+                                (11) 99999-9999
+                            </li>
+                            <li>
+                                <span class="material-symbols-outlined">schedule</span>
+                                Segunda a sexta, das 8h às 17h
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- ========== COLUNA DA DIREITA: o formulário ========== -->
+                    <!-- <form> agrupa os campos. O id serve para o JavaScript encontrar o formulário -->
+                    <form class="contato-form" id="form-contato">
+
+                        <!-- O "for" do <label> precisa ser IGUAL ao "id" do campo.
+                             Assim, clicar no texto já coloca o cursor dentro do campo -->
+                        <label for="nome">Nome</label>
+                        <!-- "required" = campo obrigatório. O navegador não deixa enviar vazio -->
+                        <input type="text" id="nome" placeholder="Seu nome" required>
+
+                        <label for="email">E-mail</label>
+                        <!-- type="email" faz o navegador conferir se tem @ e formato de e-mail -->
+                        <input type="email" id="email" placeholder="seu@email.com" required>
+
+                        <label for="mensagem">Mensagem</label>
+                        <!-- <textarea> é um campo de texto com várias linhas -->
+                        <textarea id="mensagem" rows="5" placeholder="Escreva sua mensagem" required></textarea>
+
+                        <!-- type="submit" = este botão ENVIA o formulário.
+                             Reaproveitamos as classes de botão do Hero -->
+                        <button type="submit" class="btn btn-primario btn-grande">Enviar mensagem</button>
+
+                        <!-- Parágrafo vazio: o JavaScript escreve aqui o aviso de "mensagem enviada" -->
+                        <p class="form-aviso" id="form-aviso"></p>
+                    </form>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===================== FOOTER / RODAPÉ (NOVO) ===================== -->
+    <!-- <footer> é a tag semântica do rodapé. Ele fica FORA do <main>,
+         porque não é o conteúdo principal da página -->
+    <footer class="footer">
+        <!-- Reaproveitamos o .container para alinhar com o resto da página -->
+        <div class="container footer-colunas">
+
+            <!-- Coluna 1: logo e descrição -->
+            <div class="footer-sobre">
+                <a href="#inicio" class="footer-logo">
+                    <img src="./assets/image.png" alt="Logo do Eduplan">
+                    <span>EDUPLAN</span>
+                </a>
+                <p>Plataforma completa para planejamento pedagógico e gestão de turmas.</p>
+            </div>
+
+            <!-- Coluna 2: links para as seções desta página.
+                 O href="#id" leva até a seção que tem aquele id -->
+            <div>
+                <h3>Navegação</h3>
+                <ul class="footer-links">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#funcionalidades">Recursos</a></li>
+                    <li><a href="#como-funciona">Como Funciona</a></li>
+                    <li><a href="#beneficios">Benefícios</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+
+            <!-- Coluna 3: páginas que ainda não existem (por isso href="#") -->
+            <div>
+                <h3>Suporte</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Central de Ajuda</a></li>
+                    <li><a href="#contato">Fale Conosco</a></li>
+                    <li><a href="#">Tutoriais</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Privacidade</a></li>
+                </ul>
+            </div>
+
+            <!-- Coluna 4: contato.
+                 <address> é a tag semântica para informações de contato -->
+            <address class="footer-contato">
+                <h3>Contato</h3>
+
+                <!-- "mailto:" abre o programa de e-mail; "tel:" liga no celular -->
+                <a href="mailto:contato@eduplan.com.br">
+                    <span class="material-symbols-outlined">mail</span>
+                    contato@eduplan.com.br
+                </a>
+                <a href="tel:+5511999999999">
+                    <span class="material-symbols-outlined">call</span>
+                    (11) 99999-9999
+                </a>
+
+                <!-- Redes sociais. Troquem o "#" pelo endereço real quando existir -->
+                <div class="footer-redes">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">YouTube</a>
+                </div>
+            </address>
+        </div>
+
+        <!-- Faixa de baixo com o copyright.
+             O ano fica vazio: o JavaScript escreve o ano atual dentro do <span id="ano"> -->
+        <div class="footer-copyright">
+            <p>© <span id="ano"></span> EduPlan. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

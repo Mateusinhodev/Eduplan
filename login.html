@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar | EduPlan</title>
+    <!-- Usamos o MESMO style.css do site: assim as cores (variáveis) e os botões (.btn) já vêm prontos -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+</head>
+<!-- A classe no <body> permite estilizar só as páginas de login e cadastro -->
+<body class="pagina-acesso">
+
+    <!-- A tela é dividida em duas partes: painel azul (esquerda) e formulário (direita) -->
+    <main class="acesso">
+
+        <!-- ========== PAINEL AZUL DA ESQUERDA ========== -->
+        <!-- <aside> = conteúdo complementar, que fica "ao lado" do principal.
+             No celular este painel some, para sobrar espaço para o formulário -->
+        <aside class="acesso-painel">
+            <a href="index.html" class="acesso-logo">
+                EDUPLAN
+            </a>
+
+            <h2>Que bom ter você de volta!</h2>
+            <p>Entre na sua conta para continuar planejando suas aulas.</p>
+
+            <ul class="acesso-vantagens">
+                <li><span class="material-symbols-outlined">description</span> Planos de aula em minutos</li>
+                <li><span class="material-symbols-outlined">calendar_month</span> Calendário e diário de classe</li>
+                <li><span class="material-symbols-outlined">verified_user</span> Seus dados protegidos</li>
+            </ul>
+        </aside>
+
+        <!-- ========== ÁREA DO FORMULÁRIO (DIREITA) ========== -->
+        <section class="acesso-conteudo">
+            <!-- Link para voltar para a página inicial (index.html) -->
+            <a href="index.html" class="acesso-voltar">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Voltar ao início
+            </a>
+
+            <div class="acesso-card">
+                <h1>Entrar</h1>
+                <p class="acesso-subtitulo">Acesse sua conta do EduPlan.</p>
+
+                <!-- Por enquanto a tela é ESTÁTICA (só HTML e CSS): o formulário ainda não envia
+                     os dados para lugar nenhum. Isso virá depois, com o servidor (backend) -->
+                <form class="acesso-form">
+
+                    <!-- O "for" do label é IGUAL ao "id" do campo -->
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="seu@email.com" required>
+
+                    <label for="senha">Senha</label>
+                    <!-- type="password" esconde o que é digitado (●●●●) -->
+                    <input type="password" id="senha" placeholder="Digite sua senha" required>
+
+                    <!-- Linha com "Lembrar de mim" (esquerda) e "Esqueci minha senha" (direita) -->
+                    <div class="acesso-opcoes">
+                        <!-- O <label> em volta do checkbox: clicar no texto também marca a caixinha -->
+                        <label class="checkbox">
+                            <input type="checkbox" id="lembrar">
+                            Lembrar de mim
+                        </label>
+                        <a href="#">Esqueci minha senha</a>
+                    </div>
+
+                    <!-- Reaproveitamos as classes de botão do site -->
+                    <button type="submit" class="btn btn-primario btn-grande">Entrar</button>
+                </form>
+
+                <p class="acesso-trocar">
+                    Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
