@@ -19,6 +19,12 @@ Vantagem: se quiser trocar uma cor, muda só aqui e ela é atualizada em todos o
     --azul-hover: #1E40AF;     /* azul do botão quando o mouse passa por cima */
     --azul-claro: #DBEAFE;     /* fundo da etiqueta e do botão de contorno no hover */
     --fundo-suave: #F5F8FF;    /* fundo levemente azulado do Hero */
+
+    /* NOVAS Variáveis */
+    --azul-marinho: #0B1E4F;
+    --azul-hover: #1E40AF;
+    --azul-claro: #DBEAFE;
+    --fundo-suave: #F5F8FF;
 }
 
 /* O "*" seleciona TODOS os elementos da página */
@@ -141,11 +147,13 @@ body {
 
 .btn-cadastrar {
     background-color: var(--azul-escuro);
+    background-color: var(--verde);
     color: #FFF;
 }
 
 .btn-cadastrar:hover {
     background-color: var(--azul-hover);
+    background-color: var(--verde-escuro);
 }
 
 /* Menu Hamburguer */
@@ -210,7 +218,6 @@ body {
     }
 }
 
-
 /* =====================================================================
    HERO — tudo daqui para baixo é da seção Hero
    ===================================================================== */
@@ -222,6 +229,14 @@ body {
     /* Segurança: enquanto a fonte de ícones carrega, o navegador mostraria o NOME
        do ícone (ex.: "verified_user"). Estas linhas limitam o espaço a um quadradinho,
        para o texto não "vazar" e bagunçar o layout */
+
+/* HERO */
+
+/* Icones do Google: Deixamos o tamanho padrão menor e alinhado 
+ao texto */
+.material-symbols-outlined {
+    font-size: 20px;
+    line-height: 1;
     display: inline-block;
     width: 1em;
     overflow: hidden;
@@ -238,24 +253,44 @@ body {
 /* Agora usamos o GRID, "irmão" do Flexbox.
    Flexbox organiza em UMA direção; Grid organiza em colunas E linhas.
    Aqui: 2 colunas, a da direita (imagem) um pouco maior que a da esquerda */
+=======
+    padding: 64px 0 80px; /* 64px em cima, 0 nas laterais, 80px embaixo*/
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+/* Aqui usaremos o GRID, "irmão" do Flexbox
+-> Flexbox organiza em UMA direção; Grid organiza em colunas E linhas 
+*/
+>>>>>>> 422f860655441805e4544a0c4bf3810b0d1eee03
 .hero-inner {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
 
     display: grid;
+<<<<<<< HEAD
     /* "fr" = fração do espaço disponível.
        minmax(0, ...) impede que um conteúdo largo "estique" a coluna além da tela */
+=======
+    /* "fr" = fração do espaço disponivel */
+>>>>>>> 422f860655441805e4544a0c4bf3810b0d1eee03
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
     align-items: center;
     gap: 48px;
 }
 
+<<<<<<< HEAD
 /* ---------- Coluna da esquerda ---------- */
 
 /* Etiqueta azul clarinha acima do título */
 .hero-etiqueta {
     display: inline-block; /* <span> sozinho não aceita padding direito; inline-block resolve */
+=======
+/* Coluna da Esquerda */
+
+.hero-etiqueta {
+    display: inline-block;
+>>>>>>> 422f860655441805e4544a0c4bf3810b0d1eee03
     background-color: var(--azul-claro);
     color: var(--azul-escuro);
     font-size: 12px;
@@ -271,13 +306,20 @@ body {
     color: var(--azul-marinho);
     font-size: 54px;
     font-weight: 800;
+<<<<<<< HEAD
     line-height: 1.05; /* Linhas bem próximas, como no esboço */
+=======
+    line-height: 1.05;
+>>>>>>> 422f860655441805e4544a0c4bf3810b0d1eee03
     text-transform: uppercase;
     margin-bottom: 20px;
 }
 
+<<<<<<< HEAD
 /* Só a palavra dentro do <span> fica azul.
    "display: block" faz ela começar em uma linha nova */
+=======
+>>>>>>> 422f860655441805e4544a0c4bf3810b0d1eee03
 .hero-titulo span {
     color: var(--azul-escuro);
     display: block;
@@ -287,26 +329,44 @@ body {
     font-size: 18px;
     line-height: 1.5;
     color: var(--texto-secundario);
+<<<<<<< HEAD
     max-width: 440px; /* Impede que a linha fique comprida demais */
+=======
+    max-width: 440px; /* Impede que a linha fique muito comprida*/
+>>>>>>> 422f860655441805e4544a0c4bf3810b0d1eee03
     margin-bottom: 32px;
 }
 
 .hero-botoes {
     display: flex;
     gap: 12px;
+<<<<<<< HEAD
     flex-wrap: wrap; /* Se não couber, o segundo botão desce para a linha de baixo */
+=======
+    flex-wrap: wrap; /* Se não couber, o segundo botão desce p/ baixo */
+>>>>>>> 422f860655441805e4544a0c4bf3810b0d1eee03
     margin-bottom: 32px;
 }
 
 /* Versão maior do botão */
+<<<<<<< HEAD
+=======
+
+>>>>>>> 422f860655441805e4544a0c4bf3810b0d1eee03
 .btn-grande {
     font-size: 15px;
     padding: 14px 28px;
     text-transform: uppercase;
+<<<<<<< HEAD
     gap: 8px; /* Espaço entre o ícone ▶ e o texto */
 }
 
 /* Botão azul cheio */
+=======
+    gap: 8px;
+}
+
+>>>>>>> 422f860655441805e4544a0c4bf3810b0d1eee03
 .btn-primario {
     background-color: var(--azul-escuro);
     color: #FFF;
@@ -316,7 +376,10 @@ body {
     background-color: var(--azul-hover);
 }
 
+<<<<<<< HEAD
 /* Botão só com a borda azul */
+=======
+>>>>>>> 422f860655441805e4544a0c4bf3810b0d1eee03
 .btn-contorno {
     background-color: var(--cor-fundo);
     color: var(--azul-escuro);
@@ -328,6 +391,10 @@ body {
 }
 
 /* Faixa com as 3 vantagens */
+<<<<<<< HEAD
+=======
+
+>>>>>>> 422f860655441805e4544a0c4bf3810b0d1eee03
 .hero-vantagens {
     list-style: none;
     display: flex;
@@ -339,7 +406,11 @@ body {
 }
 
 .hero-vantagens li {
+<<<<<<< HEAD
     flex: 1; /* Os 3 itens dividem a largura igualmente */
+=======
+    flex: 1; /* Os 3 itens dividem a largura igualmente*/
+>>>>>>> 422f860655441805e4544a0c4bf3810b0d1eee03
     display: flex;
     align-items: center;
     gap: 10px;
@@ -349,8 +420,14 @@ body {
     color: var(--texto-secundario);
 }
 
+<<<<<<< HEAD
 /* Linha divisória entre os itens.
    "li + li" = todo <li> que vem DEPOIS de outro <li> (ou seja, o 2º e o 3º) */
+=======
+/* Linha divisória entre os itens 
+"li + li" = todo <li> que vem DEPOIS de outro <li> (ou seja, o 2º e o 3º)
+*/
+>>>>>>> 422f860655441805e4544a0c4bf3810b0d1eee03
 .hero-vantagens li + li {
     border-left: 1px solid var(--cor-borda);
 }
@@ -366,6 +443,7 @@ body {
     font-weight: 600;
 }
 
+<<<<<<< HEAD
 /* ---------- Coluna da direita: imagem do Dashboard ---------- */
 
 .hero-imagem {
@@ -426,24 +504,62 @@ body {
    ===================================================================== */
 
 /* Faz a página "deslizar" suavemente ao clicar em um link como href="#funcionalidades" */
+=======
+/* Coluna da direita: Imagem do Dashboard */
+
+.hero-imagem {
+    width: 100%;
+    height: auto;
+    display: block;
+    background-color: var(--cor-fundo);
+    border: 2px solid var(--texto-principal);
+    border-radius: 14px;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+}
+
+/* FUNCIONALIDADES */
+
+/* Faz a página "deslizar" suavemente ao clicar em um link do 
+header */
+>>>>>>> 422f860655441805e4544a0c4bf3810b0d1eee03
 html {
     scroll-behavior: smooth;
 }
 
+<<<<<<< HEAD
 /* Como o header fica grudado no topo (sticky), ele cobriria o começo da seção.
    scroll-margin-top deixa uma folga do tamanho do header ao rolar até ela */
+=======
+/* Como o header fica grudado no topo (sticky), ele cobriria o 
+começo da seção. o scroll-margin-top deixa uma folga do tamanho
+do header ao rolar até ela */
+>>>>>>> 422f860655441805e4544a0c4bf3810b0d1eee03
 section {
     scroll-margin-top: 90px;
 }
 
+<<<<<<< HEAD
 /* .container: limita a largura e centraliza, igual ao .header-inner.
    Vamos reaproveitar essa classe em TODAS as próximas seções */
+=======
+/* O espaçamento de cima e de baixo, também reaproveitado nas 
+próximas seções */
+.secao {
+    padding: 64px 0;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+/* Limita a largura e centraliza, igual ao .header-inner
+   Vamos reaproveitar essa classe em TODAS as próximas seções
+*/
+>>>>>>> 422f860655441805e4544a0c4bf3810b0d1eee03
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
 }
 
+<<<<<<< HEAD
 /* .secao: o espaçamento de cima e de baixo, também reaproveitado nas próximas seções */
 .secao {
     padding: 64px 0;
@@ -477,6 +593,36 @@ section {
 .cards {
     display: grid;
     grid-template-columns: repeat(5, 1fr); /* repeat(5, 1fr) = "1fr 1fr 1fr 1fr 1fr" */
+=======
+/* Titulo das seções (FUNCIONALIDADES, COMO FUNCIONA... */
+.secao-titulo {
+    color: var(--azul-marinho);
+    font-size: 24px;
+    font-weight: 800px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 40px;
+    /* border-bottom: 3px solid var(--azul-escuro); */
+}
+
+/* A linha azul embaixo do título.
+   ::after cria um "elemento extra" logo depois do conteúdo do título
+   sem precisar escrever nada no HTML.
+*/
+.secao-titulo::after {
+    content: ""; /* Obrigatório no ::after, mesmo vazio */
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: var(--azul-escuro);
+    margin: 12px auto 0;
+    border-radius: 2px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 1fr 1fr 1fr 1fr 1fr*/
+>>>>>>> 422f860655441805e4544a0c4bf3810b0d1eee03
     gap: 20px;
 }
 
@@ -486,6 +632,7 @@ section {
     border-radius: 12px;
     padding: 32px 20px;
     text-align: center;
+<<<<<<< HEAD
     transition: transform .2s ease, box-shadow .2s ease; /* Animação suave no hover */
 }
 
@@ -496,6 +643,16 @@ section {
 }
 
 /* Ícone grande e azul no topo do cartão */
+=======
+    transition: transform .2s ease, box-shadow .2s ease; /* Animação*/
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+>>>>>>> 422f860655441805e4544a0c4bf3810b0d1eee03
 .card-icone {
     font-size: 48px;
     color: var(--azul-escuro);
@@ -514,6 +671,7 @@ section {
     color: var(--texto-secundario);
 }
 
+<<<<<<< HEAD
 /* ---------- Funcionalidades no tablet e celular ---------- */
 
 /* Tablet: 2 cartões por linha */
@@ -541,6 +699,10 @@ section {
 
 /* =====================================================================
    COMO FUNCIONA (NOVO)
+=======
+/* =====================================================================
+   COMO FUNCIONA
+>>>>>>> 422f860655441805e4544a0c4bf3810b0d1eee03
    ===================================================================== */
 
 /* Flexbox: etapas e setas lado a lado, numa linha só */
@@ -622,7 +784,11 @@ section {
 }
 
 /* =====================================================================
+<<<<<<< HEAD
    BENEFÍCIOS (NOVO)
+=======
+   BENEFÍCIOS
+>>>>>>> 422f860655441805e4544a0c4bf3810b0d1eee03
    ===================================================================== */
 
 /* Grid com 5 colunas, igual aos cartões de Funcionalidades */
@@ -672,6 +838,7 @@ section {
     line-height: 1.5;
     color: var(--texto-secundario);
 }
+<<<<<<< HEAD
 
 /* =====================================================================
    CHAMADA FINAL - CTA (NOVO)
@@ -1310,3 +1477,5 @@ section {
         padding: 32px 20px;
     }
 }
+=======
+>>>>>>> 422f860655441805e4544a0c4bf3810b0d1eee03

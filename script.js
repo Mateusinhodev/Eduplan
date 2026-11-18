@@ -1,7 +1,3 @@
-// =========================================================
-// MENU HAMBÚRGUER 
-// =========================================================
-
 // 1. Seleciona os elementos que vamos usar
 const botaoMenu = document.querySelector("#btn-menu");
 const menu = document.querySelector(".nav");
@@ -11,7 +7,6 @@ botaoMenu.addEventListener("click", function () {
     // 3. Alterna (liga/desliga) a classe "ativo" no menu
     menu.classList.toggle("ativo");
 });
-
 
 // =========================================================
 // FECHAR O MENU AO CLICAR EM UM LINK (NOVO)
